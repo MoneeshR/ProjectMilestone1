@@ -4,8 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>History of HTTP</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	<!-- This page presents the evolution of HTTP as a timeline. 
+     Each paragraph marks a major version and explains how the protocol changed 
+     as the web grew and improved. -->
 	<main>
 		<h1>History of HTTP</h1>
         <p>
@@ -17,15 +21,32 @@
         </p>
         <p>
             <strong>1996 - HTTP/1.0 released</strong><br>
+            Compared to its predecessor, HTTP/1.0 added a lot of new features. It introduced the concept of headers, 
+            introduced a structured Request-Line that explicitly includes the protocol version, 
+            introduced delivering numeric Status Codes and human-readable Reason Phrases, and 
+            introduced the concept of MIME types to describe the content of the response.
         </p>
         <p>
             <strong>1999 - HTTP/1.1 released</strong><br>
+            Although it added new features, HTTP/1.0 had a problem of short-lived connections. 
+            HTTP/1.1 fixed this by introducing persistent connections, which allowed multiple 
+            requests and responses to be sent over a single connection. Some of its features include chunked transfer encoding, 
+            additional cache control mechanisms, and the Host header.
         </p>
         <p>
             <strong>2015 - HTTP/2 released</strong><br>
+            HTTP/2 was developed directly from SDPY, which was an experimental protocol created by Google to demonstrate latency reduction.
+            Unlike HTTP/1.1 that used a text-based format, HTTP/2 uses a binary format that is more efficient to parse and less error-prone.
+            Some of its features include multiplexing, header compression, and server push.
         </p>
         <p>
             <strong>2022 - HTTP/3 released</strong>
+            As good as HTTP/2 was, it still had one issue. Because it soley relies on TCP, 
+            it views all transmitted data as one contiguous stream of bytes. If a single packet 
+            containing data from Stream A is lost, TCP stalls processing for all subsequent packets, 
+            until the missing packet is retransmitted. HTTP/3 solves this problem by using QUIC, 
+            which is a transport protocol that uses UDP instead of TCP. This helps reduce latency and improve performance, 
+            especially in situations where packet loss is common.
         </p>
         <p><a class="button" href="index.html">Back to Home</a></p>
 	</main>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Life cycle of HTTP</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<!-- This page explains the request lifecycle in numbered steps so the reader can follow how an 
+     HTTP interaction moves from connection setup to the final response. -->
+	<main>
+		<h1>Life cycle of HTTP</h1>
+        <p>
+            1. The client opens a TCP connection (or QUIC association) to the server to initiate communication.
+        </p>
+        <p> 
+            2. The client then sends an HTTP request to the server, which includes a method (like GET or POST), 
+            the requested resource's URL, and any necessary headers.
+        </p>
+        <p>
+            3. The server parses the request line and headers, processes the resource, and crafts a response message.
+            The structure of the response includes a status line, headers, and the requested resource's body.
+        </p>
+        <p>
+            4. After those proecesses finish, the server sends the response back to the client over the established connection.
+        </p>
+        <p><a class="button" href="index.html">Back to Home</a></p>
+	</main>
+</body>
+</html>
