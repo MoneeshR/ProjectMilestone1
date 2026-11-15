@@ -152,12 +152,11 @@ function finishQuiz() {
     const percentage = Math.round((score / questions.length) * 100);
 
     const timeLabel = (elapsedSeconds === timeLimitSeconds && score < questions.length)
-    ? `${formatTime(elapsedSeconds)} (time limit reached)`
-    : formatTime(elapsedSeconds);
-	timerDisplay.textContent = `Time spent: ${formatTime(elapsedSeconds)}`;
+        ? `${formatTime(elapsedSeconds)} (time limit reached)`
+        : formatTime(elapsedSeconds);
 
     summary.innerHTML = `
-    <p class="quiz-overall ${passed ? "quiz-pass" : "quiz-fail"}">
+        <p class="quiz-overall ${passed ? "quiz-pass" : "quiz-fail"}">
             ${passed ? "Pass" : "Fail"} — ${score} / ${questions.length} (${percentage}%)
         </p>
         <p>Time spent: ${timeLabel}</p>
@@ -173,7 +172,9 @@ function finishQuiz() {
     }).join("");
     
 	form.querySelectorAll('input, button[type="submit"]').forEach((el) => el.disabled = true);
-    resultsSection.hidden = false;
+    
+    // Use classList instead of hidden attribute to reliably show results
+    resultsSection.classList.hidden = false;
     resultsSection.focus();
 }
 
@@ -183,15 +184,20 @@ form.addEventListener("submit", (event) => {
 	finishQuiz();
 });
 
-// Resets the quiz to its initial state, allowing the user to retake it.
+// Event listener for form reset (Retake quiz).
 form.addEventListener("reset", (event) => {
+	event.preventDefault(); // Added back to prevent default page reload behavior
+	form.reset();
 	form.querySelectorAll("input").forEach((input) => {
 		input.disabled = false;
 	});
 	form.querySelector('[type="submit"]').disabled = false;
+	
+	// Hide results section using classList
 	resultsSection.hidden = true;
 	summary.innerHTML = "";
 	questionResults.innerHTML = "";
+	
 	submitted = false;
 	startedAt = Date.now();
 	timerDisplay.textContent = "Time remaining: 10:00";

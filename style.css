@@ -183,9 +183,7 @@ strong {
 }
 
 .quiz-results {
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 2px solid #dfe7f5;
+    display: none;
 }
 
 .quiz-results h2 {
