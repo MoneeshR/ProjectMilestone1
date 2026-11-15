@@ -154,6 +154,7 @@ function finishQuiz() {
     const timeLabel = (elapsedSeconds === timeLimitSeconds && score < questions.length)
     ? `${formatTime(elapsedSeconds)} (time limit reached)`
     : formatTime(elapsedSeconds);
+	timerDisplay.textContent = `Time spent: ${formatTime(elapsedSeconds)}`;
 
     summary.innerHTML = `
     <p class="quiz-overall ${passed ? "quiz-pass" : "quiz-fail"}">
@@ -171,7 +172,7 @@ function finishQuiz() {
         `;
     }).join("");
     
-    form.querySelectorAll("input, button[type.submit]").forEach((el) => el.disabled = true);
+	form.querySelectorAll('input, button[type="submit"]').forEach((el) => el.disabled = true);
     resultsSection.hidden = false;
     resultsSection.focus();
 }
@@ -184,9 +185,9 @@ form.addEventListener("submit", (event) => {
 
 // Resets the quiz to its initial state, allowing the user to retake it.
 form.addEventListener("reset", (event) => {
-	event.preventDefault();
-	form.reset();
-	form.querySelectorAll("input, button[type='submit']").forEach((el) => el.disabled = false);
+	form.querySelectorAll("input").forEach((input) => {
+		input.disabled = false;
+	});
 	form.querySelector('[type="submit"]').disabled = false;
 	resultsSection.hidden = true;
 	summary.innerHTML = "";
