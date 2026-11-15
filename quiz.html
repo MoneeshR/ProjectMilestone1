@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="quiz-main">
+        <h1>HTML Quiz</h1>
+        <p>Answer all 10 questions. You have 10 minutes to finish.</p>
+        <p class="quiz-timer" id="quiz-timer" role="timer" aria-live="off">Time remaining: 10:00</p>
+
+        <!-- JavaScript fills this form with questions from the quiz question array. -->
+        <form id="quiz-form">
+            <div id="quiz-questions"></div>
+            <div class="quiz-actions">
+                <button class="button" type="submit">Submit quiz</button>
+                <button class="button button-secondary" id="reset-quiz" type="reset">Retake quiz</button>
+            </div>
+        </form>
+
+        <section class="quiz-results" id="quiz-results" aria-live="polite" tabindex="-1" hidden>
+            <h2>Quiz results</h2>
+            <div id="quiz-summary"></div>
+            <ol id="question-results"></ol>
+        </section>
+
+        <p class="quiz-home"><a class="button button-secondary" href="index.html">Back to Home</a></p>
+    </main>
+    <script src="quiz.js" defer></script>
+</body>
+</html>
