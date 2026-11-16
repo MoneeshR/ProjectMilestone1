@@ -186,6 +186,10 @@ strong {
     display: none;
 }
 
+.quiz-results.show {
+    display: block;
+}
+
 .quiz-results h2 {
     margin-top: 0;
 }
