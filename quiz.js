@@ -174,7 +174,7 @@ function finishQuiz() {
 	form.querySelectorAll('input, button[type="submit"]').forEach((el) => el.disabled = true);
     
     // Use classList instead of hidden attribute to reliably show results
-    resultsSection.classList.hidden = false;
+    resultsSection.hidden = false;
     resultsSection.focus();
 }
 
