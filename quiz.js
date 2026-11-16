@@ -174,7 +174,7 @@ function finishQuiz() {
 	form.querySelectorAll('input, button[type="submit"]').forEach((el) => el.disabled = true);
     
     // Use classList instead of hidden attribute to reliably show results
-    resultsSection.hidden = false;
+    resultsSection.classList.add("show");
     resultsSection.focus();
 }
 
@@ -194,9 +194,9 @@ form.addEventListener("reset", (event) => {
 	form.querySelector('[type="submit"]').disabled = false;
 	
 	// Hide results section using classList
-	resultsSection.hidden = true;
-	summary.innerHTML = "";
-	questionResults.innerHTML = "";
+	resultsSection.classList.remove("show");
+    summary.innerHTML = "";
+    questionResults.innerHTML = "";
 	
 	submitted = false;
 	startedAt = Date.now();
